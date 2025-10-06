@@ -9,16 +9,34 @@
 
 // console.log(open)
 
-let arr = [1,2,3,4,5]
+// let arr = [1,2,3,4,5]
 
-arr.forEach(element => {
-    console.log("ForEach "+element*2);
+// arr.forEach(element => {
+//     console.log("ForEach "+element*2);
     
     
-});
+// });
 
-let temp  = arr.map(function(val){
-    console.log("Map: "+val * val);
+// let temp  = arr.map(function(val){
+//     console.log("Map: "+val * val);
     
-});
-console.log(arr.length)
+// });
+// console.log(arr.length)
+
+
+function checkprime(num){
+
+    for(let i=2; i < num/2; i++){
+
+        if(num%i === 0){
+            return false;
+
+        }
+
+
+    }
+    return true;
+
+}
+
+console.log(checkprime(7));

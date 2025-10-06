@@ -1,10 +1,20 @@
 // what is closure ?
 
-function abcd(){
-    let val = 0;
-    return function(){
-        console.log(`The value is:`+val);
-    };
+function outer(){
+    let val = 25;
+    
+    function inner(){
+        
+        function inner2(){
+            console.log("The value is:"+val);
+        }
+        inner2();
+
+    }
+
+    return inner;
 }
 
-abcd();
+
+let result = outer();
+result();
