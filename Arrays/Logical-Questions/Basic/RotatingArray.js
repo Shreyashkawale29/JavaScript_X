@@ -6,31 +6,35 @@
 
 // Input: arr[] = [-1, -2, -3, 4, 5, 6, 7], d = 2
 // Output: [-3, 4, 5, 6, 7, -1, -2]
-// Explanation: 
+// Explanation:
 // Rotate by 1: [-2, -3, 4, 5, 6, 7, -1]
 // Rotate by 2: [-3, 4, 5, 6, 7, -1, -2]
-arr = [1, 3, 4, 2], d = 3 
+let arr = [1, 2, 3, 4, 5];
+let d = 2;
 // Output: [2, 1, 3, 4]
 // Explanation: After rotating the array three times, the first three elements shift one by one to the right.
 
-function rotatingArray(d, arr){
+function rotatingArray(arr, d) {
+  let n = arr.length;
 
-    d = d % arr.length; // // if the value of d > arr.length to wo remaine
+  function reverse(start, end) {
+    while (start < end) {
+      let temp = arr[start];
+      arr[start] = arr[end];
+      arr[end] = temp;
 
-    for(let i = 0; i < d; i++){
-
-        let temp = arr[0]; // // take the first element
-
-        for(let j = 0; j < arr.length-1; j++){
-
-            arr[j] = arr[j+1]; // shift the array in right side
-        }
-
-        arr[arr.length-1] = temp; //  put the last element at first
-
+      start++;
+      end--;
     }
-    return console.log(arr);
+  }
 
+  reverse(0, n - 1); // Reverse the whole Array
+
+  reverse(0, n - d - 1); // Reverse the n-d element in Array
+
+  reverse(n - d, n - 1); // Reverse the last d element
+
+  return arr; // IMP - Without Returning Array Your output will be undefined.
 }
 
-rotatingArray(d, arr);
+console.log(rotatingArray(arr, d));
