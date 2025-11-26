@@ -16,40 +16,23 @@
 
 let arr = [111, 222, 333, 444, 555];
 
-IsPalindrome()
+IsPalindrome(arr);
 
-function IsPalindrome(num){
-    
+function IsPalindrome(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let num = arr[i];
     let original = num;
     let reverse = 0;
 
-    while(num > 0){
-
-        let digit = num % 10;
-        reverse = reverse *10 + digit;
-        num = Math.floor(num / 10);
-
-    }
-    return original == reverse;
-
-}
-
-function IsPalindromicArray(arr){
-
-    let count = 0;
-    for(let i = 0; i < arr.length; i++){
-
-        if(IsPalindrome(arr[i])){
-
-            count = count + 1;
-        }
+    while (num > 0) {
+      let digit = num % 10;
+      reverse = reverse * 10 + digit;
+      num = Math.floor(num / 10);
     }
 
-    if(arr[i] == arr.length){
-        return true;
+    if (reverse !== original) {
+      return console.log(false);
     }
-    else{
-        return false;
-    }
-
+  }
+  return console.log(true);
 }
